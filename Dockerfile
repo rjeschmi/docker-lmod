@@ -7,7 +7,8 @@ RUN sed "/^#baseurl/s/^#//" -i /etc/yum.repos.d/CentOS-Base.repo
 RUN useradd -m build
 
 RUN yum -y install git tar which bzip2 xz \
-            epel-release make automake gcc gcc-c++ patch
+            epel-release make automake gcc gcc-c++ patch \
+            python-keyring zlib-devel openssl-devel unzip
 RUN mkdir -p /build
 WORKDIR /build
 RUN curl -LO http://github.com/TACC/Lmod/archive/5.8.tar.gz
