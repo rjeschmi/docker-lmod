@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM centos:centos6
 
 ENV LMOD_VER 6.0.6
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
