@@ -1,10 +1,10 @@
 FROM centos:centos7
 
-ENV LMOD_VER 6.0.6
+ENV LMOD_VER 6.0.16
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
-RUN sed "s/enabled.*$/enabled=0/" -i /etc/yum/pluginconf.d/fastestmirror.conf
-RUN sed "/^mirrorlist/s/^/#/" -i /etc/yum.repos.d/CentOS-Base.repo
-RUN sed "/^#baseurl/s/^#//" -i /etc/yum.repos.d/CentOS-Base.repo
+#RUN sed "s/enabled.*$/enabled=0/" -i /etc/yum/pluginconf.d/fastestmirror.conf
+#RUN sed "/^mirrorlist/s/^/#/" -i /etc/yum.repos.d/CentOS-Base.repo
+#RUN sed "/^#baseurl/s/^#//" -i /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum -y install git tar which bzip2 xz \
             epel-release make automake gcc gcc-c++ patch \
