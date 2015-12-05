@@ -24,5 +24,5 @@ RUN make install
 RUN ln -s /software/Lmod/lmod/lmod/init/profile /etc/profile.d/modules.sh
 RUN ln -s /software/Lmod/lmod/lmod/init/cshrc /etc/profile.d/modules.csh
 
-
+CMD /bin/bash
 
