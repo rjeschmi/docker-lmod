@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-ENV LMOD_VER 6.1
+ENV LMOD_VER 6.4.3
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 #RUN sed "s/enabled.*$/enabled=0/" -i /etc/yum/pluginconf.d/fastestmirror.conf
 #RUN sed "/^mirrorlist/s/^/#/" -i /etc/yum.repos.d/CentOS-Base.repo
