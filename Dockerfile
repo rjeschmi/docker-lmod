@@ -17,7 +17,7 @@ RUN tar xvf Lmod-${LMOD_VER}.tar.gz
 
 WORKDIR /build/Lmod-${LMOD_VER}
 
-RUN yum -y install lua lua-devel lua-posix lua-filesystem tcl
+RUN yum -y install lua lua-devel lua-posix lua-filesystem tcl iproute
 
 RUN ./configure --prefix=/software/Lmod
 RUN make install
