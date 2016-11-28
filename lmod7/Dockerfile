@@ -16,10 +16,10 @@ WORKDIR /build/Lmod-${LMOD_VER}
 
 RUN yum -y install lua lua-devel lua-posix lua-filesystem tcl iproute
 
-RUN ./configure --prefix=/easybuild/Lmod
+RUN ./configure --prefix=/easybuild/deps
 RUN make install
-RUN ln -s /easybuild/Lmod/lmod/lmod/init/profile /etc/profile.d/modules.sh
-RUN ln -s /easybuild/Lmod/lmod/lmod/init/cshrc /etc/profile.d/modules.csh
+RUN ln -s /easybuild/deps/lmod/lmod/init/profile /etc/profile.d/modules.sh
+RUN ln -s /easybuild/deps/lmod/lmod/init/cshrc /etc/profile.d/modules.csh
 
 CMD /bin/bash
 
