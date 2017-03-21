@@ -1,0 +1,9 @@
+version: '2'
+services:
+  lmod:
+    build:
+        context: ./lmod7
+    image: rjeschmi/lmod:latest
+
+            
+        
