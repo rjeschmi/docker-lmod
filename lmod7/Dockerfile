@@ -6,6 +6,7 @@ MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 RUN yum -y install git tar which bzip2 xz \
             epel-release make automake gcc gcc-c++ patch \
             python-keyring zlib-devel openssl-devel unzip iproute
+RUN rpm -ivh https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm
 RUN mkdir -p /build
 WORKDIR /build
 RUN curl -LO http://github.com/TACC/Lmod/archive/${LMOD_VER}.tar.gz
