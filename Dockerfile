@@ -1,6 +1,6 @@
 FROM centos:centos6
 
-ENV LMOD_VER 6.0.6
+ENV LMOD_VER 8.3.9
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 RUN sed "s/enabled.*$/enabled=0/" -i /etc/yum/pluginconf.d/fastestmirror.conf
 RUN sed "/^mirrorlist/s/^/#/" -i /etc/yum.repos.d/CentOS-Base.repo
@@ -8,7 +8,8 @@ RUN sed "/^#baseurl/s/^#//" -i /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum -y install git tar which bzip2 xz \
             epel-release make automake gcc gcc-c++ patch \
-            python-keyring zlib-devel openssl-devel unzip
+            python-keyring zlib-devel openssl-devel unzip \
+            tcl-devel
 RUN mkdir -p /build
 WORKDIR /build
 RUN curl -LO http://github.com/TACC/Lmod/archive/${LMOD_VER}.tar.gz
