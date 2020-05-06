@@ -1,0 +1,41 @@
+version: '3.2'
+
+
+services:
+    lmod-6:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: lmod-6
+        volumes:
+            - type: volume
+              source: software-vol
+              target: /software
+
+    lmod-6-in-7:
+        environment:
+            PATH: "/software/tcl/bin:/software/luarocks/bin:/software/lua/bin:${PATH}"
+            LUA_PATH: '/software/luarocks/share/lua/5.1/?.lua;./?.lua;/software/lua/share/lua/5.1/?.lua;/software/lua/share/lua/5.1/?/init.lua;/software/lua/lib/lua/5.1/?.lua;/software/lua/lib/lua/5.1/?/init.lua;/software/luarocks/share/lua/5.1/?/init.lua'
+            LUA_CPATH: './?.so;/software/lua/lib/lua/5.1/?.so;/software/lua/lib/lua/5.1/loadall.so;/software/luarocks/lib/lua/5.1/?.so'
+            CPATH: /software/tcl/include
+            LIBRARY_PATH: /software/tcl/lib
+            
+        image: centos:7
+        volumes:
+            - software-vol:/software
+    lmod-6-in-debian:
+        environment:
+            PATH: "/software/tcl/bin:/software/luarocks/bin:/software/lua/bin:${PATH}"
+            LUA_PATH: '/software/luarocks/share/lua/5.1/?.lua;./?.lua;/software/lua/share/lua/5.1/?.lua;/software/lua/share/lua/5.1/?/init.lua;/software/lua/lib/lua/5.1/?.lua;/software/lua/lib/lua/5.1/?/init.lua;/software/luarocks/share/lua/5.1/?/init.lua'
+            LUA_CPATH: './?.so;/software/lua/lib/lua/5.1/?.so;/software/lua/lib/lua/5.1/loadall.so;/software/luarocks/lib/lua/5.1/?.so'
+            CPATH: /software/tcl/include
+            LIBRARY_PATH: /software/tcl/lib
+            
+        image: debian
+        volumes:
+            - software-vol:/software
+
+
+
+volumes:
+    software-vol:
