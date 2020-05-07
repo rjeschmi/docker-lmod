@@ -6,7 +6,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        image: lmod-6
+        image: rjeschmi/lmod:centos6
         volumes:
             - type: volume
               source: software-vol
@@ -19,7 +19,7 @@ services:
             LUA_CPATH: './?.so;/software/lua/lib/lua/5.1/?.so;/software/lua/lib/lua/5.1/loadall.so;/software/luarocks/lib/lua/5.1/?.so'
             CPATH: /software/tcl/include
             LIBRARY_PATH: /software/tcl/lib
-            
+            MODULEPATH: /software/lmod/lmod/modulefiles/Core
         image: centos:7
         volumes:
             - software-vol:/software

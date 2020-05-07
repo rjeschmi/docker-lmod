@@ -46,8 +46,8 @@ ENV PATH="/software/tcl/bin:${PATH}"
 RUN ./configure --prefix=/software
 RUN make -C pkgs/tcl2lua LUA_INC=/software/lua/include DIR=/software/tcl/include LIBS="-L/software/tcl/lib -Wl,-rpath,/software/tcl/lib -ltcl8.6"
 RUN make install
-RUN ln -s /software/Lmod/lmod/lmod/init/profile /etc/profile.d/modules.sh
-RUN ln -s /software/Lmod/lmod/lmod/init/cshrc /etc/profile.d/modules.csh
+RUN ln -s /software/lmod/lmod/init/profile /etc/profile.d/modules.sh
+RUN ln -s /software/lmod/lmod/init/cshrc /etc/profile.d/modules.csh
 
 
 
